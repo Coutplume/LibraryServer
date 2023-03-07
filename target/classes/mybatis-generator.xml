@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <context id="context" targetRuntime="MyBatis3">
+        <!--数据库连接的账号密码
+        &amp;zeroDateTimeBehavior=convertToNull
+        -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/library_313?serverTimezone=Asia/Shanghai"
+                        userId="root"
+                        password="96859762"/>
+        <!--生成dataObject类的存放位置-->
+        <javaModelGenerator targetPackage="com.arthur.project.dataObject" targetProject="src/main/java">
+            <!--合并包-->
+            <property name="enableSubPackages" value="true"/>
+            <!--消掉空格-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件的存放位置-->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成dao类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.arthur.project.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--生成对应表以及类名-->
+        <!--<table tableName="user_info" domainObjectName="UserDo"></table>
+        <table tableName="user_password" domainObjectName="UserPasswordDo"></table>
+        -->
+
+        <table tableName="lend" domainObjectName="LendDO"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableCountByExample="false"
+               enableSelectByExample="false">
+        </table>
+
+    </context>
+</generatorConfiguration>
